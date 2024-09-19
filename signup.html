@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - CareBridge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CareBridge</h1>
+        </div>
+    </header>
+    <main>
+        <section class="signup-form">
+            <div class="container">
+                <h2>New here? Sign up:</h2>
+                <form id="signup-form">
+                    <label for="role">Sign up as:</label>
+                    <select id="role" name="role" required>
+                        <option value="doctor">Doctor</option>
+                        <option value="patient">Patient</option>
+                    </select>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="button" id="next-btn">Next</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Additional Form Sections -->
+        <section class="additional-form doctor-form" id="doctor-form">
+            <div class="container">
+                <h2>Doctor Information</h2>
+                <form id="doctor-info-form">
+                    <label for="qualifications">Qualifications:</label>
+                    <input type="text" id="qualifications" name="qualifications" required>
+
+                    <label for="specialization">Specialization:</label>
+                    <input type="text" id="specialization" name="specialization" required>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="additional-form patient-form" id="patient-form">
+            <div class="container">
+                <h2>Patient Information</h2>
+                <form id="patient-info-form">
+                    <label for="dob">Date of birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+
+                    <label for="weight">Weight:</label>
+                    <input type="number" id="weight" name="weight" required>
+
+                    <label for="height">Height:</label>
+                    <input type="number" id="height" name="height" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="illnesses">Previous illnesses:</label>
+                    <textarea id="illnesses" name="illnesses" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CareBridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('next-btn').addEventListener('click', function() {
+            const role = document.getElementById('role').value;
+            document.getElementById('signup-form').style.display = 'none';
+            
+            if (role === 'doctor') {
+                document.getElementById('doctor-form').style.display = 'block';
+            } else if (role === 'patient') {
+                document.getElementById('patient-form').style.display = 'block';
+            }
+        });
+
+        // Hide additional forms initially
+        document.getElementById('doctor-form').style.display = 'none';
+        document.getElementById('patient-form').style.display = 'none';
+    </script>
+</body>
+</html>
